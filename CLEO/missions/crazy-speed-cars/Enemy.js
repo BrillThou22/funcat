@@ -1,7 +1,7 @@
 /// <reference path="../../.config/sa.d.ts" />
 
 import { AccHack } from "../___utils___/acc-hack";
-import { getRandomFloatNumber, modelActionWithCallback } from "../___utils___/utils";
+import { getRandomFloatNumber, modelActWithCall } from "../___utils___/utils";
 
 const PLAYER_CHAR = new Player();
 const PLAYER_ACTOR = PLAYER_CHAR.getChar();
@@ -15,14 +15,14 @@ export class Enemy {
     this.DRIVER = null;
   }
 
-  isDefined(callback = () => {}) {
+  isDefined(callback = () => { }) {
     if (!this.CAR || !this.DRIVER) {
       callback();
       return true;
     }
   }
 
-  isDead(callback = () => {}) {
+  isDead(callback = () => { }) {
     if (Car.IsDead(this.CAR) || Char.IsDead(this.DRIVER)) {
       callback();
       return true;
@@ -67,7 +67,7 @@ export class Enemy {
       if (attemps > 5) break;
     }
 
-    modelActionWithCallback(415, () => {
+    modelActWithCall(415, () => {
       this.CAR = Car.Create(415, globX, globY, globZ);
       this.DRIVER = Char.CreateRandomAsDriver(this.CAR);
     });
@@ -78,7 +78,7 @@ export class Enemy {
 
     this.CAR.setForwardSpeed(30.0);
 
-    modelActionWithCallback(415, () => {
+    modelActWithCall(415, () => {
       const { x, y, z } = PLAYER_ACTOR.getOffsetInWorldCoords(0.0, 0.0, -20.0);
       const C = Car.Create(415, x, y, z);
       Task.CarMission(this.DRIVER, this.CAR, C, 3, 1000.0, 16);
@@ -101,17 +101,13 @@ export class Enemy {
       !PLAYER_ACTOR.locateAnyMeansCar2D(this.CAR, 25.0, 25.0, 0)
     ) {
       const { x, y, z } = this.CAR.getOffsetInWorldCoords(0.0, 50.0, 0.0);
-      const { nodeX, nodeY, nodeZ, angle } = Path.GetClosestCarNodeWithHeading(
-        x,
-        y,
-        z
-      );
+      const { nodeX, nodeY, nodeZ, angle } = Path.GetClosestCarNodeWithHeading(x, y, z);
 
       this.CAR.setCoordinates(nodeX, nodeY, nodeZ);
       this.CAR.setHeading(angle);
       this.CAR.setForwardSpeed(30.0);
 
-      modelActionWithCallback(415, () => {
+      modelActWithCall(415, () => {
         const { x, y, z } = PLAYER_ACTOR.getOffsetInWorldCoords(
           0.0,
           0.0,
