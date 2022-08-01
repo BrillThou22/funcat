@@ -49,7 +49,7 @@ export class CrazyChaseClass {
 
     /* INIT */
 
-    const P_CAR = Car.prototype;
+    let P_CAR = Car.prototype;
 
     modelActWithCall(MODS.BOB_CAT, () => {
       P_CAR = Car.Create(MODS.BOB_CAT, -2766.15, 2329.683, 71.7076);

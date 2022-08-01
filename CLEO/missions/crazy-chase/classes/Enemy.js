@@ -32,6 +32,8 @@ const getEnemyFromGroup = (group) => {
       carId: gr5[0],
     };
   }
+
+  return { pedId: getRandomIntNumber(280, 289), carId: gr1[getRandomIntNumber(0, gr1.length)], };
 };
 
 export class Enemy {
@@ -41,7 +43,12 @@ export class Enemy {
 
   CAR = Car.prototype;
 
-  constructor() { this.SPEC_PSG, this.PASSANGER, this.DRIVER, this.CAR = null; }
+  constructor() {
+    this.PASSANGER = null;
+    this.SPEC_PSG = null;
+    this.DRIVER = null;
+    this.CAR = null;
+  }
 
   isDead() {
     if (Char.IsDead(this.DRIVER) || this.CAR.getHealth() < 200 || !this.DRIVER.isInCar(this.CAR)) return true;
