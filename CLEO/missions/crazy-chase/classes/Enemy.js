@@ -66,8 +66,8 @@ export class Enemy {
     const c1 = P_CAR.getOffsetInWorldCoords(x, -50.0, 1.0);
     const XYZ = Path.GetClosestCarNodeWithHeading(c1.x, c1.y, c1.z);
 
-    XYZ.nodeX += getRandomFloatNumber(-5.5, 5.5);
-    XYZ.nodeY += getRandomFloatNumber(-5.5, 5.5);
+    XYZ.nodeX += getRandomFloatNumber(-7.5, 7.5);
+    XYZ.nodeY += getRandomFloatNumber(-7.5, 7.5);
 
     let group = getEnemyFromGroup(getRandomIntNumber(0, 5));
 

@@ -24,7 +24,7 @@ export class Bonus {
 
   addRPG7() {
     this.BONUS.Rpg7 = true;
-    modelActWithCall(Weapon.GetModel(RPG), () => { PLAYER_ACTOR.giveWeapon(RPG, 3) });
+    modelActWithCall(Weapon.GetModel(RPG), () => { PLAYER_ACTOR.giveWeapon(RPG, 5) });
     Sound.AddOneOffSound(0.0, 0.0, 0.0, 1054);
     Text.PrintBigString("~Y~BONUS~W~: RPG-7.", 1000, 5);
   }
@@ -53,7 +53,7 @@ export class Bonus {
 
   addHSRocket() {
     this.BONUS.HSRocket = true;
-    modelActWithCall(Weapon.GetModel(HS_ROCKET), () => { PLAYER_ACTOR.giveWeapon(HS_ROCKET, 3) });
+    modelActWithCall(Weapon.GetModel(HS_ROCKET), () => { PLAYER_ACTOR.giveWeapon(HS_ROCKET, 5) });
     Sound.AddOneOffSound(0.0, 0.0, 0.0, 1054);
     Text.PrintBigString("~Y~BONUS~W~: HOMING MISSILE.", 1000, 5);
   }
